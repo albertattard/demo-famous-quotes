@@ -7,6 +7,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
+import java.lang.management.ManagementFactory;
+import java.util.List;
+
 @SpringBootApplication
 public class Main {
 
@@ -19,5 +22,20 @@ public class Main {
     @Bean
     CommandLineRunner javaVersionRunner() {
         return args -> LOGGER.info("Java runtime version: {}", System.getProperty("java.runtime.version"));
+    }
+
+    @Bean
+    CommandLineRunner configurationRunner() {
+        return args -> {
+            final List<String> arguments = ManagementFactory.getRuntimeMXBean()
+                    .getInputArguments();
+
+            if (arguments.isEmpty()) {
+                LOGGER.info("Using default configuration");
+            } else {
+                LOGGER.info("Using the following JVM arguments:");
+                arguments.forEach(LOGGER::info);
+            }
+        };
     }
 }

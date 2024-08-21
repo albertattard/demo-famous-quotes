@@ -32,6 +32,9 @@ This example makes use of the following tech-stack
 and it was created using the
 [Spring Initializr](https://start.spring.io/#!type=maven-project&language=java&platformVersion=3.3.2&packaging=jar&jvmVersion=21&groupId=demo&artifactId=demo-famous-quotes&name=Famous%20Quotes%20Demo&description=A%20simple%20Spring%20Boot%20web%20application%20that%20exposes%20one%20end-point%20which%20returns%20a%20random%20famous%20quote%20from%20a%20famous%20person.&packageName=demo&dependencies=web,h2,data-jpa).
 
+This demo application is very similar to the
+[Books Demo](https://github.com/albertattard/demo-books).
+
 ## Prerequisites
 
 - [Oracle Java 21](https://www.oracle.com/java/technologies/downloads/#java21)

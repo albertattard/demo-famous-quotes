@@ -2,9 +2,10 @@ package demo.quote;
 
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.random.RandomGenerator;
 
 import static java.util.Objects.requireNonNull;
 
@@ -18,19 +19,17 @@ public class QuoteService {
     }
 
     public Optional<Quote> random() {
-        /* Returns a random quote using, inefficiently, by loading all the
-            quotes from the database and then picking one at random. A more
-            efficient way would have fetched the count of quotes in the table
-            and then return the one found at a random index using the SQL
-            LIMIT and OFFSET. */
-        final List<Quote> list = repository.findAll();
+        /* Returns a random quote, inefficiently, by loading all the quotes from
+            the database and then picking one at random. A more efficient way
+            would have fetched the count of quotes in the table and then return
+            the one found at a random index using the SQL LIMIT and OFFSET. */
+        final List<Quote> quotes = new ArrayList<>(repository.findAll());
 
-        if (list.isEmpty()) {
+        if (quotes.isEmpty()) {
             return Optional.empty();
         }
 
-        final RandomGenerator random = RandomGenerator.getDefault();
-        final int index = random.nextInt(list.size());
-        return Optional.of(list.get(index));
+        Collections.shuffle(quotes);
+        return Optional.of(quotes.getFirst());
     }
 }
