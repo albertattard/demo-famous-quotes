@@ -9,6 +9,8 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
+import static java.util.Objects.requireNonNull;
+
 @Entity
 public class Quote implements Serializable {
 
@@ -16,17 +18,22 @@ public class Quote implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String author;
     private String quote;
 
     protected Quote() {}
 
+    protected Quote(final String author, final String quote) {
+        this.author = requireNonNull(author);
+        this.quote = requireNonNull(quote);
+    }
+
     public Quote(final long id, final String author, final String quote) {
         this.id = id;
-        this.author = author;
-        this.quote = quote;
+        this.author = requireNonNull(author);
+        this.quote = requireNonNull(quote);
     }
 
     public Long getId() {
