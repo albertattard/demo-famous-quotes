@@ -21,4 +21,4 @@ INSERT INTO quote (author, quote) VALUES
   ('Robert H. Schuller',   'Tough times never last but tough people do.'),
   ('Stephen King',         'Get busy living or get busy dying.'),
   ('Henry Ford',           'Whether you think you can or you think you can''t, you''re right.'),
-  ('Alrded Lord Tennyson', 'Tis better to have loved and lost than to have never loved at all.');
+  ('Alfred Lord Tennyson', 'Tis better to have loved and lost than to have never loved at all.');
