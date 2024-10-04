@@ -51,9 +51,10 @@ public class Quote implements Serializable {
     @Override
     public boolean equals(final Object object) {
         return object instanceof final Quote other
-                && Objects.equals(id, other.id)
-                && Objects.equals(author, other.author)
-                && Objects.equals(quote, other.quote);
+               && getClass() == other.getClass()
+               && Objects.equals(id, other.id)
+               && Objects.equals(author, other.author)
+               && Objects.equals(quote, other.quote);
     }
 
     @Override
