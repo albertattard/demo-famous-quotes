@@ -9,7 +9,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
-import static java.util.Objects.requireNonNull;
+import static org.h2.mvstore.DataUtils.checkArgument;
 
 @Entity
 public class Quote implements Serializable {
@@ -26,14 +26,14 @@ public class Quote implements Serializable {
     protected Quote() {}
 
     protected Quote(final String author, final String quote) {
-        this.author = requireNonNull(author);
-        this.quote = requireNonNull(quote);
+        this.author = checkAuthor(author);
+        this.quote = checkQuote(quote);
     }
 
     public Quote(final long id, final String author, final String quote) {
-        this.id = id;
-        this.author = requireNonNull(author);
-        this.quote = requireNonNull(quote);
+        this.id = checkId(id);
+        this.author = checkAuthor(author);
+        this.quote = checkQuote(quote);
     }
 
     public Long getId() {
@@ -64,6 +64,21 @@ public class Quote implements Serializable {
 
     @Override
     public String toString() {
-        return "Quote[id=%d, author=%s, quote=%s]".formatted(id, author, quote);
+        return "Quote[id=" + id + ", author=" + author + ", quote=" + quote + ']';
+    }
+
+    private static Long checkId(final long id) {
+        checkArgument(id > 0, "The quote id cannot be less than 1");
+        return id;
+    }
+
+    private static String checkAuthor(final String author) {
+        checkArgument(author != null && !author.isEmpty() && author.length() <= 32, "The quote author name cannot be null, empty and must be less than or equal to 32 letters");
+        return author;
+    }
+
+    private static String checkQuote(final String quote) {
+        checkArgument(quote != null && !quote.isEmpty() && quote.length() <= 255, "The quote cannot be null, empty and must be less than than or equal to 255 letters");
+        return quote;
     }
 }

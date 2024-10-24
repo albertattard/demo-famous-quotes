@@ -15,7 +15,7 @@ public class QuoteService {
     private final QuoteRepository repository;
 
     public QuoteService(final QuoteRepository repository) {
-        this.repository = requireNonNull(repository);
+        this.repository = requireNonNull(repository, "The quote repository cannot be null");
     }
 
     public Optional<Quote> random() {

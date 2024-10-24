@@ -14,7 +14,7 @@ public class QuoteController {
     private final QuoteService service;
 
     public QuoteController(final QuoteService service) {
-        this.service = requireNonNull(service);
+        this.service = requireNonNull(service, "The quote service cannot be null");
     }
 
     @GetMapping("/random")

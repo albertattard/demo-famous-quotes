@@ -26,6 +26,8 @@
         <maven.failsafe.plugin.version>3.4.0</maven.failsafe.plugin.version>
         <maven.enforcer.plugin.version>3.5.0</maven.enforcer.plugin.version>
         <required.maven.version>3.6.3</required.maven.version>
+
+        <guava.version>33.3.0-jre</guava.version>
     </properties>
 
     <dependencies>
@@ -45,6 +47,12 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
         </dependency>
 
         <dependency>
