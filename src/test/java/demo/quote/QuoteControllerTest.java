@@ -8,7 +8,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
 
 import java.util.Optional;
 
@@ -27,7 +27,7 @@ class QuoteControllerTest {
     @BeforeEach
     public void setup() {
         restTemplate.getRestTemplate()
-                .setRequestFactory(new HttpComponentsClientHttpRequestFactory());
+                .setRequestFactory(new SimpleClientHttpRequestFactory());
     }
 
     @Test
