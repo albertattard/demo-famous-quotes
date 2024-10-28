@@ -9,7 +9,7 @@ import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
-import static org.h2.mvstore.DataUtils.checkArgument;
+import static com.google.common.base.Preconditions.checkArgument;
 
 @Entity
 public class Quote implements Serializable {
