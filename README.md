@@ -95,8 +95,8 @@ This demo application is very similar to the
    ```json
    {
      "id": 1,
-     "author": "Nelson Mandela",
-     "quote": "The greatest glory in living lies not in never falling, but in rising every time we fall."
+     "author": "Abraham Lincoln",
+     "quote": "Whatever you are, be a good one."
    }
    ```
 
