@@ -94,9 +94,9 @@ This demo application is very similar to the
 
    ```json
    {
-     "id": 1,
-     "author": "Abraham Lincoln",
-     "quote": "Whatever you are, be a good one."
+     "id": 125,
+     "author": "Mark Twain",
+     "quote": "Never argue with stupid people, they will drag you down to their level and then beat you with experience."
    }
    ```
 
